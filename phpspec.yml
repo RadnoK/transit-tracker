@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: TransitTracker
+        psr4_prefix: TransitTracker

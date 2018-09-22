@@ -1,0 +1,22 @@
+imports:
+    - "tests/Behat/Resources/config/suites.yml"
+
+default:
+    extensions:
+        FriendsOfBehat\ContextServiceExtension:
+            imports:
+                - "tests/Behat/Resources/config/services.xml"
+
+        FriendsOfBehat\SuiteSettingsExtension:
+            paths:
+                - "features"
+
+cached:
+    extensions:
+        FriendsOfBehat\ContextServiceExtension:
+            imports:
+                - "tests/Behat/Resources/config/services.xml"
+
+        FriendsOfBehat\SuiteSettingsExtension:
+            paths:
+                - "features"
