@@ -13,21 +13,17 @@ services:
             - MYSQL_USER=transit_tracker
             - MYSQL_PASSWORD=secret
         ports:
-            - "8044:3306"
-
-    elasticsearch:
-        image: elasticsearch:5.4-alpine
-        container_name: transit-tracker-elasticsearch
+            - "8046:3306"
 
     web:
         image: nginx:alpine
-        container_name: transit-tracker-webserver
+        container_name: transit-tracker-web
         working_dir: /app
         volumes:
-            - .:/app
-            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        - .:/app
+        - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
         ports:
-           - "8042:80"
+        - "8044:80"
 
     php-fpm:
         build: docker/php-fpm
