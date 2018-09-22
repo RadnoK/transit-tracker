@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-use TransitTracker\Kernel;
+use TransitTracker\Infrastructure\Kernel;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Debug\Debug;

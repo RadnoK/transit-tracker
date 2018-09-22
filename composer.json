@@ -16,17 +16,31 @@
         "ext-iconv": "*",
         "ext-json": "*",
 
+        "thecodingmachine/safe": "^0.1.4",
+        "ramsey/uuid": "^3.8",
         "symfony/console": "^4.1",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "^4.1",
-        "symfony/yaml": "^4.1"
+        "symfony/yaml": "^4.1",
+        "webmozart/assert": "^1.2"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.1"
+        "behat/behat": "^3.5",
+        "friends-of-behat/context-service-extension": "^1.2",
+        "friends-of-behat/cross-container-extension": "^1.1",
+        "friends-of-behat/service-container-extension": "^1.0",
+        "friends-of-behat/suite-settings-extension": "1.0",
+        "friends-of-behat/symfony-extension": "^1.2",
+        "phpspec/phpspec": "^5.0",
+        "phpstan/phpstan": "^0.9",
+        "phpstan/phpstan-strict-rules": "^0.9",
+        "symfony/dotenv": "^4.1",
+        "symplify/easy-coding-standard": "^4.2"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "bin-dir": "bin",
         "preferred-install": {
             "*": "dist"
         },
@@ -39,7 +53,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\TransitTracker\\": "tests/"
+            "Tests\\TransitTracker\\": "tests/",
+            "spec\\TransitTracker\\": "spec/"
         }
     },
     "replace": {
@@ -51,6 +66,22 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
+        "fix": [
+            "bin/ecs check --ansi --no-progress-bar bin spec src tests --fix"
+        ],
+        "analyse": [
+            "bin/ecs check --ansi --no-progress-bar bin spec src tests",
+            "bin/phpstan analyse --ansi --no-progress -c phpstan.neon -l 7 src tests"
+        ],
+        "test": [
+            "bin/phpspec run --ansi",
+            "bin/behat --strict --colors"
+        ],
+        "check": [
+            "composer validate --strict --ansi",
+            "@analyse",
+            "@test"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
