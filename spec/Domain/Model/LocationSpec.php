@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace spec\TransitTracker\Domain\Model;
 
 use PhpSpec\ObjectBehavior;
+use TransitTracker\Domain\Exception\InvalidAddressFormatException;
 
 final class LocationSpec extends ObjectBehavior
 {
@@ -16,5 +17,13 @@ final class LocationSpec extends ObjectBehavior
     function it_has_an_address(): void
     {
         $this->address()->shouldReturn('Królewska 1, Poznań, PL');
+    }
+
+    function it_throws_an_exception_when_address_value_is_invalid(): void
+    {
+        $this
+            ->shouldThrow(InvalidAddressFormatException::class)
+            ->during('__construct', ['Invalid address'])
+        ;
     }
 }

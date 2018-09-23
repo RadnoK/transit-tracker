@@ -4,30 +4,35 @@ declare(strict_types=1);
 
 namespace TransitTracker\Domain\Model;
 
-use Ramsey\Uuid\UuidInterface;
-use TransitTracker\Domain\Model\Collection\LocationCollection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
-final class Route
+class Route
 {
-    /** @var UuidInterface */
+    /** @var Id */
     private $id;
 
-    /** @var LocationCollection */
+    /** @var Collection */
     private $locations;
 
-    private function __construct(UuidInterface $id)
+    private function __construct(Id $id)
     {
         $this->id = $id;
-        $this->locations = LocationCollection::createEmpty();
+        $this->locations = new ArrayCollection();
     }
 
-    public static function create(UuidInterface $id): self
+    public static function create(Id $id): self
     {
         return new self($id);
     }
 
-    public function id(): UuidInterface
+    public function id(): Id
     {
         return $this->id;
+    }
+
+    public function addLocation(Location $location): void
+    {
+        $this->locations->add($location);
     }
 }

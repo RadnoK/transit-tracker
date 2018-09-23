@@ -21,6 +21,7 @@
         "symfony/console": "^4.1",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "^4.1",
+        "symfony/orm-pack": "^1.0",
         "symfony/yaml": "^4.1",
         "thecodingmachine/safe": "^0.1.4",
         "webmozart/assert": "^1.2"
