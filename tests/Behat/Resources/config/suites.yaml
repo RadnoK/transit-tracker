@@ -1,0 +1,3 @@
+imports:
+    - suites/application/managing_transits.yaml
+    - suites/infrastructure/managing_transits.yaml

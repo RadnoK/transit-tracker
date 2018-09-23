@@ -12,18 +12,26 @@ class Route
     /** @var Id */
     private $id;
 
+    /** @var string */
+    private $name;
+
+    /** @var Distance */
+    private $distance;
+
     /** @var Collection */
     private $locations;
 
-    private function __construct(Id $id)
+    private function __construct(Id $id, string $name)
     {
         $this->id = $id;
+        $this->name = $name;
+        $this->distance = new Distance(0);
         $this->locations = new ArrayCollection();
     }
 
-    public static function create(Id $id): self
+    public static function create(Id $id, string $name): self
     {
-        return new self($id);
+        return new self($id, $name);
     }
 
     public function id(): Id
@@ -34,5 +42,10 @@ class Route
     public function addLocation(Location $location): void
     {
         $this->locations->add($location);
+    }
+
+    public function changeDistance(Distance $distance): void
+    {
+        $this->distance = $distance;
     }
 }

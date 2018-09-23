@@ -16,3 +16,6 @@
 
 /bin/*
 !/bin/console
+
+/.behat.yml
+/.phpspec.yml

@@ -1,0 +1,7 @@
+default:
+    suites:
+        application_managing_transits:
+            contexts_services:
+                - 'Tests\TransitTracker\Behat\Context\Application\TransitContext'
+            filters:
+                tags: '@managing_transits && @application'

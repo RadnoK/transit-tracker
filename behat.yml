@@ -1,5 +1,5 @@
 imports:
-    - "tests/Behat/Resources/config/suites.yml"
+    - "tests/Behat/Resources/config/suites.yaml"
 
 default:
     extensions:
@@ -10,6 +10,14 @@ default:
         FriendsOfBehat\SuiteSettingsExtension:
             paths:
                 - "features"
+
+        FriendsOfBehat\SymfonyExtension:
+            kernel:
+                bootstrap: 'vendor/autoload.php'
+                path: 'src/Infrastructure/Kernel.php'
+                class: 'TransitTracker\Infrastructure\Kernel'
+
+        FriendsOfBehat\CrossContainerExtension: ~
 
 cached:
     extensions:

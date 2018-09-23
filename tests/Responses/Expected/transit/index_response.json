@@ -1,23 +1,10 @@
 {
     "transits": [
         {
-            "id": "c70b72b0-e028-4f1f-86eb-25567a51e6d0",
-            "distanceKilometers": 636.97,
-            "locations": [
-              "Marszałkowska 100, Warszawa, PL",
-              "Argentinská 1, Praha, CZ"
-            ],
-            "createdAt": 1535908668
-        },
-        {
-            "id": "363ba55a-9234-431b-959f-9ca21d5b5155",
-            "distanceKilometers": 723.66,
-            "locations": [
-              "Królewska 1, Poznań, PL",
-              "Legnicka 1, Wrocław, PL",
-              "Fischerinsel 1, Berlin, DE"
-            ],
-            "createdAt": 1535908578
+            "id": "@string@",
+            "distanceKilometers": "@integer@",
+            "locations": "@array@",
+            "createdAt": "@integer@"
         }
     ]
 }

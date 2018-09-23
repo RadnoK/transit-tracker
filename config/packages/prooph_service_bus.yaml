@@ -1,0 +1,5 @@
+prooph_service_bus:
+    command_buses:
+        transit_command_bus: ~
+    event_buses:
+        transit_event_bus: ~

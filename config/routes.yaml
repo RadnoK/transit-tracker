@@ -1,3 +1,13 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+transit_tracker_create_transits:
+    path: /transits
+    methods: [POST]
+    defaults:
+        _controller: TransitTracker\Infrastructure\Api\CreateTransitAction
+        _format: json
+
+transit_tracker_list_transits:
+    path: /transits
+    methods: [GET]
+    defaults:
+        _controller: TransitTracker\Infrastructure\Api\ListTransitsAction
+        _format: json

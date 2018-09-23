@@ -25,17 +25,17 @@ final class CreateRouteHandlerSpec extends ObjectBehavior
         $id = Id::fromString('d2c75772-c84c-4959-b6f9-4658d0aff6cd');
 
         $routes
-            ->add(Argument::exact(Route::create($id)))
+            ->add(Argument::exact(Route::create($id, 'Route 66')))
             ->shouldBeCalled()
         ;
 
         $eventBus
             ->dispatch(Argument::that(function (RouteCreated $event) use ($id): bool {
-                return $event->id() == $id;
+                return $event->id() == $id && 'Route 66' === $event->name();
             }))
             ->shouldBeCalled()
         ;
 
-        $this(CreateRoute::create($id));
+        $this(CreateRoute::create($id, 'Route 66'));
     }
 }

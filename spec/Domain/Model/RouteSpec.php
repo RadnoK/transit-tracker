@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace spec\TransitTracker\Domain\Model;
 
 use PhpSpec\ObjectBehavior;
+use TransitTracker\Domain\Model\Distance;
 use TransitTracker\Domain\Model\Id;
 use TransitTracker\Domain\Model\Location;
 
@@ -14,6 +15,7 @@ final class RouteSpec extends ObjectBehavior
     {
         $this->beConstructedThrough('create', [
             Id::fromString('d0ebe123-96c6-4a41-a3f2-38c37de0a8be'),
+            'Route 66'
         ]);
     }
 
@@ -24,6 +26,17 @@ final class RouteSpec extends ObjectBehavior
 
     function it_can_have_locations(): void
     {
-        $this->addLocation(new Location('Królewska 1, Poznań, PL'));
+        $this
+            ->shouldNotThrow()
+            ->during('addLocation', [new Location('Królewska 1, Poznań, PL')])
+        ;
+    }
+
+    function its_distance_is_mutable(): void
+    {
+        $this
+            ->shouldNotThrow()
+            ->during('changeDistance', [new Distance(100)])
+        ;
     }
 }

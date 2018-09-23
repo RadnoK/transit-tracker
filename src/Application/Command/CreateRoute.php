@@ -18,13 +18,21 @@ final class CreateRoute extends Command
         $this->setPayload($payload);
     }
 
-    public static function create(Id $id): self
+    public static function create(Id $id, string $name): self
     {
-        return new self(['id' => $id->value()]);
+        return new self([
+            'id' => $id->value(),
+            'name' => $name,
+        ]);
     }
 
     public function id(): Id
     {
         return Id::fromString($this->payload()['id']);
+    }
+
+    public function name(): string
+    {
+        return $this->payload()['name'];
     }
 }

@@ -23,9 +23,7 @@ final class AddLocationToRoute extends Command
     {
         return new self([
             'routeId' => $routeId->value(),
-            'location' => [
-                'address' => $location->address(),
-            ],
+            'location' => $location->address(),
         ]);
     }
 
@@ -36,6 +34,6 @@ final class AddLocationToRoute extends Command
 
     public function location(): Location
     {
-        return new Location($this->payload()['location']['address']);
+        return new Location($this->payload()['location']);
     }
 }

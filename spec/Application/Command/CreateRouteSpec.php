@@ -13,8 +13,9 @@ final class CreateRouteSpec extends ObjectBehavior
     {
         $routeId = Id::fromString('6ef57170-d62f-403b-bef4-53db78be2460');
 
-        $this->beConstructedThrough('create', [$routeId]);
+        $this->beConstructedThrough('create', [$routeId, 'Route 66']);
 
         $this->id()->shouldBeLike(Id::fromString('6ef57170-d62f-403b-bef4-53db78be2460'));
+        $this->name()->shouldReturn('Route 66');
     }
 }

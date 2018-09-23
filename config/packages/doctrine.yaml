@@ -14,16 +14,26 @@ doctrine:
         default_table_options:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
-
         url: '%env(resolve:DATABASE_URL)%'
+        types:
+            uuid_binary: Ramsey\Uuid\Doctrine\UuidBinaryType
+            id_binary: TransitTracker\Infrastructure\Doctrine\Type\IdBinaryType
+            locations: TransitTracker\Infrastructure\Doctrine\Type\LocationsType
+        mapping_types:
+            id_binary: binary
+            uuid_binary: binary
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            TransitTracker:
+            Domain:
+                type: 'xml'
+                dir: '%kernel.project_dir%/src/Infrastructure/Resources/config/doctrine/domain'
+                prefix: 'TransitTracker\Domain\Model'
                 is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Infrastructure/Entity'
-                prefix: 'App\Entity'
-                alias: App
+            Infrastructure:
+                type: 'xml'
+                dir: '%kernel.project_dir%/src/Infrastructure/Resources/config/doctrine/infrastructure'
+                prefix: 'TransitTracker\Infrastructure\ReadModel\View'
+                is_bundle: false

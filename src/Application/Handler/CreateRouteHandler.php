@@ -26,10 +26,10 @@ final class CreateRouteHandler
 
     public function __invoke(CreateRoute $command): void
     {
-        $route = Route::create($command->id());
+        $route = Route::create($command->id(), $command->name());
 
         $this->routes->add($route);
 
-        $this->eventBus->dispatch(RouteCreated::occur($command->id()));
+        $this->eventBus->dispatch(RouteCreated::occur($command->id(), $command->name()));
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TransitTracker\Domain\Model;
 
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use TransitTracker\Domain\Exception\InvalidUuidFormatException;
 
 final class Id
@@ -24,6 +25,11 @@ final class Id
     public static function fromString(string $id): self
     {
         return new self($id);
+    }
+
+    public static function fromUuidInstance(UuidInterface $id): self
+    {
+        return new self($id->toString());
     }
 
     public function __toString(): string

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="TransitTracker\Infrastructure\ReadModel\View\RouteView" table="transit_tracker_route_view">
+        <id name="id" column="id" type="string" />
+
+        <field name="name" column="name" type="string" />
+
+        <one-to-many field="locations" target-entity="TransitTracker\Infrastructure\ReadModel\View\LocationView" mapped-by="route" />
+    </entity>
+</doctrine-mapping>
