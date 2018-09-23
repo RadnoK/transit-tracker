@@ -16,12 +16,13 @@
         "ext-iconv": "*",
         "ext-json": "*",
 
-        "thecodingmachine/safe": "^0.1.4",
+        "prooph/service-bus-symfony-bundle": "^0.7",
         "ramsey/uuid": "^3.8",
         "symfony/console": "^4.1",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "^4.1",
         "symfony/yaml": "^4.1",
+        "thecodingmachine/safe": "^0.1.4",
         "webmozart/assert": "^1.2"
     },
     "require-dev": {
@@ -34,6 +35,8 @@
         "phpspec/phpspec": "^5.0",
         "phpstan/phpstan": "^0.9",
         "phpstan/phpstan-strict-rules": "^0.9",
+        "symfony/debug": "^4.0",
+        "symfony/debug-pack": "^1.0",
         "symfony/dotenv": "^4.1",
         "symplify/easy-coding-standard": "^4.2"
     },
